@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Login from "./Component/login.js";
-import TodoList from "./Component/action.js";
+import Login from "./Component/Login/login.js";
+import Main from "./Component/Todo/Main/Main";
 
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-    Redirect
+  Link, Redirect
 } from 'react-router-dom';
+import Header from "./Component/Header/header";
 
 class App extends Component {
     state = {isAuth: false}
@@ -20,6 +20,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
+            <Header/>
               <Router>
                   <Route exact path={"/"}
                          render={(props) => <Login {...props}
@@ -28,7 +29,7 @@ class App extends Component {
                          />}
                   />
                   <PrivateRoute path={'/login'} component={Login} isAuth={this.state.isAuth}/>
-                  <PrivateRoute path={'/todoList'} component={TodoList} isAuth={this.state.isAuth}/>
+                  <PrivateRoute path={'/todoList'} component={Main} isAuth={this.state.isAuth}/>
               </Router>
           </div>
 
@@ -45,7 +46,6 @@ const PrivateRoute = ({component: Component, isAuth, ...rest}) => {
     } else {
         console.log("Invalid login");
         return <Route {...rest} render={(props) => <Redirect {...props} to={'/'}/>
-            // to={{pathname: '/', state: {error: {isError: true, message: 'login first'}}}}/>
         }/>
     }
 }

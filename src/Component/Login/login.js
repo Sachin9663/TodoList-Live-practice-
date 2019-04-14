@@ -1,17 +1,11 @@
 import React,{Component} from "react";
 import "./login.css";
-import Auth from "./auth.json";
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom';
-import Action from "./action";
+import User from "../auth";
 class Login extends Component{
     constructor(props){
         super(props);
         this.state={
-            name:"",
+            username:"",
             password:"",
             isAuth:this.props.isAuth
         }
@@ -27,18 +21,19 @@ class Login extends Component{
         e.preventDefault();
         let{username,password}=this.state;
         let flag=0;
-        for(let i=0; i<Auth.auth.length; i++){
-            if(Auth.auth[i][username] === password) {
+        for(let i=0; i<User.list.length; i++){
+            if(User.list[i][username] === password) {
                 this.setState({
                     isAuth: true
-                }, this.props.loginCallback(true));
-                this.props.history.push('/todoList'); //check this.props
+                },
+                this.props.loginCallback(true));
+                this.props.history.push('/todoList');
                 flag = 1;
                 break;
             }
         }
         if(!flag) {
-            alert('Invalid Login');
+            alert('the Username or password incorrect');
             this.setState({
                 username: '',
                 password: ''
@@ -49,20 +44,20 @@ class Login extends Component{
     }
     render() {
         return(
-            <Router>
-                <div className="Content">
-                    <div className='container'>
+                <div className="Content2">
+                    <div className='container2'>
                         <h2>Login Here</h2>
-                        <form method="POST" onSubmit={this.handleSubmit}>
+                        <form  onSubmit={this.handleSubmit}>
                             <input type="text"
-                                   placeholder="Username"
+                                   placeholder="Username(hint:user)"
                                    onChange={this.handleChange}
                                    value={this.state.username}
                                    name='username'
+                                   autoComplete='off'
                             />
 
                             <input type="password"
-                                   placeholder="Password"
+                                   placeholder="Password(hint:password)"
                                    onChange={this.handleChange}
                                    value={this.state.password}
                                    name='password'
@@ -73,8 +68,6 @@ class Login extends Component{
                         </form>
                     </div>
                 </div>
-            </Router>
-
         )
     }
 }

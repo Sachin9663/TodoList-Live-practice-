@@ -1,0 +1,34 @@
+.header {
+    font-family: 'Libre Baskerville';
+}
+.header h2{
+    font-size: 41px;
+    line-height: 0px;
+    padding-top: 40px;
+}
+
+.logo {
+    animation: logo-spin infinite 20s linear;
+    height: 18vmin;
+    pointer-events: none;
+}
+
+.Main-header {
+    background-image: linear-gradient(to right, #091a34, #004d77, #008791, #00bf71, #a8eb12);
+    min-height: 10vh;
+    display: flex;
+    color: #c94343;
+    justify-content: space-between;
+    padding-right: 150px;
+    padding-left: 25px;
+
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

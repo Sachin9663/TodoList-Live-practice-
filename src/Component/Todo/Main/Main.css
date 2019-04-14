@@ -1,0 +1,68 @@
+.Main{
+    font-family: 'Libre Baskerville';
+    display: flex;
+    margin-top: 40px;
+
+}
+
+.List{
+    width: 56%;
+    border: 0px solid;
+    background-color: #00bfff17;
+    margin-left: 25px;
+}
+
+.Input{
+    height: 450px;
+    width: 40%;
+    border: 0px solid;
+    background-color: azure;
+}
+
+.Input input[type=text]{
+    width: 70%;
+    height: 50px;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+.Input button{
+    width: 111px;
+    height: 42px;
+    border: none;
+    border-radius: 7px;
+    margin-left: 15px;
+    background-color: #00bcd473;
+    font-size: 19px;
+
+}
+
+.Item ul{
+    list-style: none;
+    width: 70%;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.Item ul li{
+    display: inline-block;
+}
+
+.Item ul .title{
+    padding-left: 20px;
+}
+
+.Item ul .edit{
+    float: right;
+}
+
+.Item ul .delete{
+    float: right;
+    padding-right: 30px;
+}
+
+.brainy-text{
+    width: 90%;
+    margin: auto;
+    font-size:30px;
+    padding-top: 10px;
+}
